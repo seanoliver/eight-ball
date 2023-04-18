@@ -24,14 +24,21 @@ const defaultAnswers = [
 	{ msg: 'Very doubtful.', color: 'red' },
 ];
 
+/** TODO: Docstring */
 function EightBall({ answers = defaultAnswers }) {
+  // TODO: Could implement this as one piece of state object rather than two strings.
+  // const [answerData, setAnswerData] = useState({msg:"Think of a question", color: "black"})
 	const [answer, setAnswer] = useState('Think of a Question');
 	const [color, setColor] = useState('black');
 
+
+  // TODO: Docstring
 	function getRandomIndex(arr) {
 		return Math.floor(Math.random() * arr.length);
 	}
 
+  // TODO: Docstring
+  // TODO: Conventional to call this handleClick
 	function getNewAnswer() {
 		const index = getRandomIndex(answers);
 		const { msg, color } = answers[index];
@@ -43,7 +50,7 @@ function EightBall({ answers = defaultAnswers }) {
 	return (
 		<div
 			className="EightBall"
-			style={{ 'background-color': color }}
+			style={{ backgroundColor: color }}
 			onClick={getNewAnswer}>
 			<p>{answer}</p>
 		</div>
