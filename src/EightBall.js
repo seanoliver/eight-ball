@@ -24,22 +24,41 @@ const defaultAnswers = [
 	{ msg: 'Very doubtful.', color: 'red' },
 ];
 
-/** TODO: Docstring */
+
+/** Render and update (on click) the magic 8-ball.
+ *
+ * Props:
+ * - answers - [ { msg: 'Very doubtful.', color: 'red' } ]
+ *
+ * State:
+ * - answer
+ * - color
+ *
+ * App -> EightBall
+ *
+ */
 function EightBall({ answers = defaultAnswers }) {
-  // TODO: Could implement this as one piece of state object rather than two strings.
-  // const [answerData, setAnswerData] = useState({msg:"Think of a question", color: "black"})
 	const [answer, setAnswer] = useState('Think of a Question');
 	const [color, setColor] = useState('black');
 
 
-  // TODO: Docstring
-	function getRandomIndex(arr) {
+/** Return random integer between 0 and length of given array.
+ *
+ * Params:
+ *  - arr
+ *
+ * Returns:
+ *  - integer
+ */
+  function getRandomIndex(arr) {
 		return Math.floor(Math.random() * arr.length);
 	}
 
-  // TODO: Docstring
-  // TODO: Conventional to call this handleClick
-	function getNewAnswer() {
+
+  /**
+   * Handles click on the 8-ball, sets answer and background color.
+   */
+	function handleClick() {
 		const index = getRandomIndex(answers);
 		const { msg, color } = answers[index];
 
@@ -51,7 +70,7 @@ function EightBall({ answers = defaultAnswers }) {
 		<div
 			className="EightBall"
 			style={{ backgroundColor: color }}
-			onClick={getNewAnswer}>
+			onClick={handleClick}>
 			<p>{answer}</p>
 		</div>
 	);
