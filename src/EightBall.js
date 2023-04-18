@@ -66,12 +66,24 @@ function EightBall({ answers = defaultAnswers }) {
 		setColor(color);
 	}
 
+	function handleReset() {
+		setAnswer("Think of a question");
+		setColor("black");
+	}
+
 	return (
-		<div
-			className="EightBall"
-			style={{ backgroundColor: color }}
-			onClick={handleClick}>
-			<p>{answer}</p>
+		<div className='EightBall'>
+			<div
+				className="EightBall-Ball"
+				style={{ backgroundColor: color }}
+				onClick={handleClick}>
+				<p>{answer}</p>
+			</div>
+				<button
+					className="EightBall-Reset"
+					onClick={handleReset}>
+					Reset
+					</button>
 		</div>
 	);
 }
